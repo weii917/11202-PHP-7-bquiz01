@@ -12,6 +12,7 @@ if(isset($_FILES['img']['tmp_name'])){
 // 把Post裡的table移除掉因為資料庫不需要這個資料
 unset($_POST['table']);
 // 直接用POST因為本身就是陣列，存進資料表
+
 $DB->save($_POST);
 
 to("../back.php?=do=$table");
