@@ -9,12 +9,14 @@ if(isset($_FILES['img']['tmp_name'])){
     move_uploaded_file($_FILES['img']['tmp_name'],"../img/".$_FILES['img']['name']);
     $_POST['img']=$_FILES['img']['name'];
 }
+
+$_POST['sh']=($table=='title')?0:1;
 // 把Post裡的table移除掉因為資料庫不需要這個資料
 unset($_POST['table']);
 // 直接用POST因為本身就是陣列，存進資料表
 
 $DB->save($_POST);
 
-to("../back.php?=do=$table");
+to("../back.php?do=$table");
 
 ?>
