@@ -53,9 +53,7 @@ class DB
             $sql .= " where " . join(" && ", $tmp);
         } else if (is_numeric($id)) {
             $sql .= " where `id`='$id'";
-        } else {
-            echo "錯誤:參數的資料型態比須是數字或陣列";
-        }
+        } 
         //echo 'find=>'.$sql;
         $row = $this->pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
         return $row;
@@ -68,8 +66,6 @@ class DB
 
             if (!empty($array)) {
                 $tmp = $this->a2s($array);
-            } else {
-                echo "錯誤:缺少要編輯的欄位陣列";
             }
             $sql .= join(",", $tmp);
             $sql .= " where `id`='{$array['id']}'";
@@ -95,8 +91,6 @@ class DB
             $sql .= join(" && ", $tmp);
         } else if (is_numeric($id)) {
             $sql .= " `id`='$id'";
-        } else {
-            echo "錯誤:參數的資料型態比須是數字或陣列";
         }
         //echo $sql;
 
@@ -132,9 +126,7 @@ class DB
             //echo 'all=>'.$sql;
             // $rows = $this->pdo->query($sql)->fetchColumn();
             return $sql;
-        } else {
-            echo "錯誤:沒有指定的資料表名稱";
-        }
+        } 
     }
 }
 function dd($array)
@@ -148,4 +140,5 @@ function to($url){
     header("location:$url");
 }
 $Title=new DB('titles');
+$Total=new DB('total');
 ?>
