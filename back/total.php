@@ -6,8 +6,7 @@
                 <tr class="yel">
                     <td width="50%">進站總人數</td>
                     <td width="50%">
-                        <input type="number" name="total" value="<?= $Total->find(1)['total']; ?>">
-                        <!-- 讓執行程式的api可以得到資料表名稱所以隱藏放一個table欄位帶有資料表名稱的值 -->
+                        <input type="number" name="total" value="<?= $Total->find(1)['total']; ?>">   
                         <input type="hidden" name="table" value="<?=$do;?>">
                     </td>
                 </tr>
