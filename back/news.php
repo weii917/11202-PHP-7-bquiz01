@@ -9,10 +9,13 @@
                     <td width="10%">刪除</td>   
                 </tr>
                 <?php
-                $rows=$DB->all();
-                foreach ($rows as $row){
-
-               
+                $total=$DB->count();
+                $div=5;
+                $pages=ceil($total/$div);
+                $now=$_GET['p']??1;
+                $start=($now-1)*$div;
+                $rows=$DB->all(" limit $start,$div");
+                foreach ($rows as $row){               
                 ?>
                 <tr>
                    
@@ -26,6 +29,16 @@
                 ?>
             </tbody>
         </table>
+        <!-- 判斷當前頁等於字型變大 -->
+        <div class="cent">
+            <?php
+            for($i=1;$i<=$pages;$i++){
+                $fontsize=($now==$i)?'24px':'16px';
+                echo "<a href='?do=news&p=$i' style='font-size:$fontsize'> $i </a>";
+            }
+            
+            ?>
+        </div>
         <table style="margin-top:40px; width:70%;">
             <tbody>
                 <tr>

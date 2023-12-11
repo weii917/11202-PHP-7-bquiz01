@@ -148,5 +148,8 @@ $Image=new DB('image');
 $News=new DB('news');
 if(isset($_GET['do'])){
     $DB=${ucfirst($_GET['do'])};
+}else{
+    $DB=$Title;
 }
+// 判斷沒有do連結到title頁面
 ?>
