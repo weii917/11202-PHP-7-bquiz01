@@ -9,6 +9,7 @@
 
 </table>
 <div>
+    <!-- 只是停留更新的介面，要帶table及id值到執行頁面update -->
     <input type="hidden" name="table" value="<?=$_GET['table'];?>">
     <input type="hidden" name="id" value="<?=$_GET['id'];?>">
     <input type="submit" value="更新">
