@@ -4,12 +4,12 @@ $table=$_POST['table'];
 $DB=${ucfirst($table)};
 unset($_POST['table']);
 // 如果post裡有id，新增一個text把id放進索引，值是空的
-// 因title ad用text的索引來得到id，所以mvim製作一個text帶有id的索引
+// 因title ad用text的索引來得到id，所以mvim要編輯要製作一個text帶有id的索引
 if(isset($_POST['id'])){
     foreach($_POST['id'] as $id){
         $_POST['text'][$id]='';
     }
-    // test
+   
     // dd($_POST);
     // exit();
 }
@@ -25,6 +25,7 @@ foreach($_POST['text'] as $id =>$text){
         if(isset($row['text'])){
             $row['text']=$text;
         }
+  
         if($table=='title'){
             $row['sh']=(isset($_POST['sh']) && $_POST['sh']==$id)?1:0;
         }else{

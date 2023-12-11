@@ -10,7 +10,7 @@
                     <td></td>
                 </tr>
                 <?php
-                $rows=$Mvim->all();
+                $rows=$DB->all();
                 foreach ($rows as $row){
 
                
