@@ -15,8 +15,10 @@
 
                
                 ?>
+                <!-- 做mvim時發現沒有id取用所以這裡藏一個id讓edit在處理mvim有id依據刪除編輯 -->
                 <tr>
-                    <td width="45%"><img src="./img/<?=$row['img'];?>"style="width:150px;height:120px" alt=""></td>
+                    <td width="45%"><img src="./img/<?=$row['img'];?>"style="width:150px;height:100px" alt=""></td>
+                    <input type="hidden" name="id[]" value="<?=$row['id'];?>">
                     <td width="7%"><input type="checkbox" name="sh[]" value="<?=$row['id'];?>" <?=($row['sh']==1)?'checked':'';?>></td>
                     <td width="7%"><input type="checkbox" name="del[]" value="<?=$row['id'];?>"></td>
                     <td><input type="button" onclick="op('#cover','#cvr','./modal/upload.php?table=<?=$do;?>&id=<?=$row['id'];?>')" value="更新動畫"></td>
