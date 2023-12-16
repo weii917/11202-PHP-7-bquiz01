@@ -18,29 +18,33 @@ class DB
     function all($where = '', $other = '')
     {
         $sql = "select * from `$this->table` ";
-        $sql = $this->sql_all($sql,$where,$other);
-        return $this->pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);         
+        $sql = $this->sql_all($sql, $where, $other);
+        return $this->pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     }
     function count($where = '', $other = '')
     {
         $sql = "select count(*) from `$this->table` ";
-        $sql = $this->sql_all($sql,$where,$other);
+        $sql = $this->sql_all($sql, $where, $other);
         return $this->pdo->query($sql)->fetchColumn();
     }
-    private function math($math,$col,$array='',$other=''){
-        $sql="select $math(`$col`) from `$this->table`";
-        $sql = $this->sql_all($sql,$array,$other);
+    private function math($math, $col, $array = '', $other = '')
+    {
+        $sql = "select $math(`$col`) from `$this->table`";
+        $sql = $this->sql_all($sql, $array, $other);
         return $this->pdo->query($sql)->fetchColumn();
     }
-    function sum($col='', $where = '', $other = ''){
-        return  $this->math('sum',$col,$where,$other);
+    function sum($col = '', $where = '', $other = '')
+    {
+        return  $this->math('sum', $col, $where, $other);
     }
-    function max($col, $where = '', $other = ''){
-        return  $this->math('max',$col,$where,$other);
-    }  
-    function min($col, $where = '', $other = ''){
-        return  $this->math('min',$col,$where,$other);
-    } 
+    function max($col, $where = '', $other = '')
+    {
+        return  $this->math('max', $col, $where, $other);
+    }
+    function min($col, $where = '', $other = '')
+    {
+        return  $this->math('min', $col, $where, $other);
+    }
 
 
     function find($id)
@@ -53,7 +57,7 @@ class DB
             $sql .= " where " . join(" && ", $tmp);
         } else if (is_numeric($id)) {
             $sql .= " where `id`='$id'";
-        } 
+        }
         //echo 'find=>'.$sql;
         $row = $this->pdo->query($sql)->fetch(PDO::FETCH_ASSOC);
         return $row;
@@ -110,10 +114,11 @@ class DB
         return $tmp;
     }
 
-    private function sql_all($sql,$array,$other){
+    private function sql_all($sql, $array, $other)
+    {
         if (isset($this->table) && !empty($this->table)) {
-    
-            if (is_array($array)) {    
+
+            if (is_array($array)) {
                 if (!empty($array)) {
                     $tmp = $this->a2s($array);
                     $sql .= " where " . join(" && ", $tmp);
@@ -121,12 +126,12 @@ class DB
             } else {
                 $sql .= " $array";
             }
-    
+
             $sql .= $other;
             //echo 'all=>'.$sql;
             // $rows = $this->pdo->query($sql)->fetchColumn();
             return $sql;
-        } 
+        }
     }
 }
 function dd($array)
@@ -136,22 +141,31 @@ function dd($array)
     echo "</pre>";
 }
 
-function to($url){
+function to($url)
+{
     header("location:$url");
 }
-$Title=new DB('titles');
-$Total=new DB('total');
-$Bottom=new DB('bottom');
-$Ad=new DB('ad');
-$Mvim=new DB('mvim');
-$Image=new DB('image');
-$News=new DB('news');
-$Admin=new DB('admin');
-$Menu=new DB('menu');
-if(isset($_GET['do'])){
-    $DB=${ucfirst($_GET['do'])};
-}else{
-    $DB=$Title;
+$Title = new DB('titles');
+$Total = new DB('total');
+$Bottom = new DB('bottom');
+$Ad = new DB('ad');
+$Mvim = new DB('mvim');
+$Image = new DB('image');
+$News = new DB('news');
+$Admin = new DB('admin');
+$Menu = new DB('menu');
+
+// $tables = array_keys(get_defined_vars());
+if (isset($_GET['do'])) {
+    // $key = ucfirst($_GET['do']);
+    if (isset(${ucfirst($_GET['do'])})) {
+        $DB = ${ucfirst($_GET['do'])};
+    }
+    // if (in_array($key, $tables)) {
+    //     $DB = $$key;
+    // } 
+
+} else {
+    $DB = $Title;
 }
 // 判斷沒有do連結到title頁面
-?>
