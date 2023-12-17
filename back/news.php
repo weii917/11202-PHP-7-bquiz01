@@ -8,6 +8,7 @@
                     <td width="10%">顯示</td>
                     <td width="10%">刪除</td>
                 </tr>
+                <!-- 設定分頁變數 -->
                 <?php
                 $total = $DB->count();
                 $div = 5;
@@ -30,20 +31,21 @@
                 ?>
             </tbody>
         </table>
+        <!-- 處理分頁 -->
         <!-- 判斷當前頁等於字型變大 -->
         <div class="cent">
             <?php
             if ($now > 1) {
-                $prev=$now-1;
-                echo "<a href='?do=$do&p=$prev'> < </a>"; 
+                $prev = $now - 1;
+                echo "<a href='?do=$do&p=$prev'> < </a>";
             }
             for ($i = 1; $i <= $pages; $i++) {
                 $fontsize = ($now == $i) ? '24px' : '16px';
                 echo "<a href='?do=$do&p=$i' style='font-size:$fontsize'> $i </a>";
             }
             if ($now < $pages) {
-                $next=$now+1;
-                echo "<a href='?do=$do&p=$next'> > </a>"; 
+                $next = $now + 1;
+                echo "<a href='?do=$do&p=$next'> > </a>";
             }
             ?>
         </div>

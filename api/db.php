@@ -157,6 +157,8 @@ $Menu = new DB('menu');
 
 //$tables=array_keys(get_defined_vars());
 /* dd($tables); */
+// 如果網址存在do變數，用此變數轉換為首字大寫ucfirst
+// 如果存在首字大寫變數名稱，就賦予$DB，否則以$Title賦予
 if (isset($_GET['do'])) {
     //$key=ucfirst($_GET['do']);
 

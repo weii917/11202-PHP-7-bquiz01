@@ -8,6 +8,8 @@
                     <td width="45%">密碼</td>
                     <td width="10%">刪除</td>
                 </tr>
+                <!-- 取資料料表資料放入後台顯示表格中 -->
+
                 <?php
                 $rows = $DB->all();
                 foreach ($rows as $row) {

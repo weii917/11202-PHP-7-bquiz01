@@ -9,6 +9,7 @@
                     <td width="10%">刪除</td>
                     <td></td>
                 </tr>
+                <!-- 設定分頁變數 -->
                 <?php
                 $total = $DB->count();
                 $div = 3;
@@ -34,6 +35,7 @@
                 ?>
             </tbody>
         </table>
+        <!-- 處理分頁 -->
         <div class="cent">
             <?php
             if ($now > 1) {

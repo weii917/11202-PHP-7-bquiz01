@@ -21,12 +21,14 @@
 	</div>
 	<iframe style="display:none;" name="back" id="back"></iframe>
 	<div id="main">
+		<!-- 顯示title圖片 -->
 		<?php
 		$title = $Title->find(['sh' => 1]);
 		?>
 		<a title="<?= $title['text']; ?>" href="index.php">
 			<div class="ti" style="background:url(&#39;./img/<?= $title['img']; ?>&#39;); background-size:cover;"></div><!--標題-->
 		</a>
+		<!-- 結束title圖片 -->
 		<div id="ms">
 			<div id="lf" style="float:left;">
 				<div id="menuput" class="dbor">
@@ -71,9 +73,11 @@
 
 
 				</div>
+				<!-- 顯示進站人數 -->
 				<div class="dbor" style="margin:3px; width:95%; height:20%; line-height:100px;">
 					<span class="t">進站總人數 :<?= $Total->find(1)['total']; ?></span>
 				</div>
+				<!-- 結束進站人數 -->
 			</div>
 			<div class="di" style="height:540px; border:#999 1px solid; width:76.5%; margin:2px 0px 0px 0px; float:left; position:relative; left:20px;">
 				<!--正中央-->
@@ -86,6 +90,7 @@
 					</tbody>
 				</table>
 				<!-- main -->
+				<!-- 後台中間主要顯示區塊 ，中間拆分切板至back資料夾下，以get取值include該區塊檔案-->
 				<?php
 
 				$do = $_GET['do'] ?? 'title';
@@ -96,6 +101,8 @@
 					include "./back/title.php";
 				}
 				?>
+				<!-- 後台結束中間主要顯示區塊 -->
+
 			</div>
 			<div id="alt" style="position: absolute; width: 350px; min-height: 100px; word-break:break-all; text-align:justify;  background-color: rgb(255, 255, 204); top: 50px; left: 400px; z-index: 99; display: none; padding: 5px; border: 3px double rgb(255, 153, 0); background-position: initial initial; background-repeat: initial initial;"></div>
 			<script>
@@ -115,6 +122,7 @@
 			</script>
 		</div>
 		<div style="clear:both;"></div>
+		<!-- 頁尾顯示區塊 -->
 		<div style="width:1024px; left:0px; position:relative; background:#FC3; margin-top:4px; height:123px; display:block;">
 			<span class="t" style="line-height:123px;"><?= $Bottom->find(1)['bottom']; ?></span>
 		</div>

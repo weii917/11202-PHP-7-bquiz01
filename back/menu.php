@@ -11,6 +11,8 @@
                     <td width="10%">刪除</td>
                     <td></td>
                 </tr>
+                <!-- 取資料料表資料條件為'menu_id'=0 放入後台顯示表格中 -->
+                <!-- 'menu_id'=0是主選單 -->
                 <?php
 
                 $rows = $DB->all(['menu_id' => 0]);
@@ -23,6 +25,7 @@
                         <td>
                             <input type="text" name="href[]" value="<?= $row['href']; ?>">
                         </td>
+                        <!-- count計算次選單的menu_id有幾個等於主選單的id，就知道此主選單有多少次選單 -->
                         <td><?= $Menu->count(['menu_id' => $row['id']]); ?></td>
                         <td>
                             <input type="checkbox" name="sh[]" value="<?= $row['id']; ?>" <?= ($row['sh'] == 1) ? 'checked' : ''; ?>>
