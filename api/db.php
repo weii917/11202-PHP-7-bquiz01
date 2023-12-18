@@ -174,6 +174,12 @@ if (isset($_GET['do'])) {
 
 // 紀錄進站人數，如果不存在SESSION的visited，資料庫的total加1，並賦予SESSION的visited存在值
 // 直到關掉瀏覽器都不會再加1
+
+// if(!isset($_SESSION['visited'])){
+//     $Total->q("update `total` set `total`=`total`+1 where `id`=1");
+//     $_SESSION['visited']=1;
+
+// }
 if(!isset($_SESSION['visited'])){
     $Total->q("update `total` set `total` = `total`+1 wehre `id`=1");
     $_SESSION['visited']=1;
