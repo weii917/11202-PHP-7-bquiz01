@@ -101,7 +101,7 @@ class DB
         return $this->pdo->exec($sql);
     }
     // 用來查找沒有在上述自訂function，查找其他的可以使用
-    function query($sql)
+    function q($sql)
     {
         return $this->pdo->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     }
@@ -171,3 +171,12 @@ if (isset($_GET['do'])) {
 } else {
     $DB = $Title;
 }
+
+// 紀錄進站人數，如果不存在SESSION的visited，資料庫的total加1，並賦予SESSION的visited存在值
+// 直到關掉瀏覽器都不會再加1
+if(!isset($_SESSION['visited'])){
+    $Total->q("update `total` set `total` = `total`+1 wehre `id`=1");
+    $_SESSION['visited']=1;
+}
+
+?>
