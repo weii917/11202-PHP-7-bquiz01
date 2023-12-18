@@ -35,17 +35,17 @@
 					<!--主選單放此-->
 					<span class="t botli">主選單區</span>
 					<?php
-						$mainmu=$Menu->all(['sh'=>1,'menu_id'=>0]);
-						foreach($mainmu as $main){
-						?>
+					$mainmu = $Menu->all(['sh' => 1, 'menu_id' => 0]);
+					foreach ($mainmu as $main) {
+					?>
 						<div class='mainmu'>
-							<a  href="<?=$main['href'];?>" style="color:#000; font-size:13px; text-decoration:none;"><?=$main['text'];?></a>
+							<a href="<?= $main['href']; ?>" style="color:#000; font-size:13px; text-decoration:none;"><?= $main['text']; ?></a>
 							<?php
-							
-							if($Menu->count(['menu_id'=>$main['id']])>0){
+
+							if ($Menu->count(['menu_id' => $main['id']]) > 0) {
 								echo "<div class='mw'>";
-								$subs=$Menu->all(['menu_id'=>$main['id']]);
-								foreach($subs as $sub){
+								$subs = $Menu->all(['menu_id' => $main['id']]);
+								foreach ($subs as $sub) {
 									echo "<a href='{$sub['href']}'>";
 									echo "<div class='mainmu2'>";
 									echo $sub['text'];
@@ -55,13 +55,12 @@
 								echo "</div>";
 							}
 							?>
-							
+
 						</div>
-							
-						</a>
-						<?php
-						}
-						?>
+
+					<?php
+					}
+					?>
 				</div>
 				<!-- 顯示進站人數 -->
 				<div class="dbor" style="margin:3px; width:95%; height:20%; line-height:100px;">
@@ -99,7 +98,17 @@
 
 			<div class="di di ad" style="height:540px; width:23%; padding:0px; margin-left:22px; float:left; ">
 				<!--右邊-->
-				<button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;" onclick="lo('?do=login')">管理登入</button>
+				<?php
+				if (isset($_SESSION['login'])) {
+				?>
+					<button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;" onclick="lo('back.php')">返回管理</button>
+				<?php
+				} else {
+				?>
+					<button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;" onclick="lo('?do=login')">管理登入</button>
+				<?php
+				}
+				?>
 				<div style="width:89%; height:480px;" class="dbor">
 					<span class="t botli">校園映象區</span>
 					<div class="cent" onclick="pp(1)"><img src="./icon/up.jpg" alt=""></div>
@@ -108,7 +117,7 @@
 					foreach ($imgs as $idx => $img) {
 					?>
 						<div id="ssaa<?= $idx; ?>" class="im cent">
-							<img src="./img/<?= $img['img']; ?>" style="width:150px;height:103px">
+							<img src="./img/<?= $img['img']; ?>" style="width:150px;height:103px;border:3px solid orange;margin:3px">
 						</div>
 
 					<?php
@@ -133,7 +142,7 @@
 								$("#ssaa" + t).show()
 							}
 						}
-						pp(2)
+						pp(1)
 					</script>
 				</div>
 			</div>
