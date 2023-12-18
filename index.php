@@ -1,4 +1,4 @@
-<?php include_once "./api/db.php";?>
+<?php include_once "./api/db.php"; ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!-- saved from url=(0040)http://127.0.0.1/test/exercise/collage/? -->
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -23,10 +23,10 @@
 	<div id="main">
 		<!-- 顯示title圖片 -->
 		<?php
-			$title=$Title->find(['sh'=>1]);
+		$title = $Title->find(['sh' => 1]);
 		?>
-		<a title="<?=$title['text'];?>" href="index.php">
-			<div class="ti" style="background:url(&#39;./img/<?=$title['img'];?>&#39;); background-size:cover;"></div><!--標題-->
+		<a title="<?= $title['text']; ?>" href="index.php">
+			<div class="ti" style="background:url(&#39;./img/<?= $title['img']; ?>&#39;); background-size:cover;"></div><!--標題-->
 		</a>
 		<!-- 結束title圖片 -->
 		<div id="ms">
@@ -37,7 +37,7 @@
 				</div>
 				<!-- 顯示進站人數 -->
 				<div class="dbor" style="margin:3px; width:95%; height:20%; line-height:100px;">
-					<span class="t">進站總人數 :<?=$Total->find(1)['total'];?> </span>
+					<span class="t">進站總人數 :<?= $Total->find(1)['total']; ?> </span>
 				</div>
 				<!-- 結束進站人數 -->
 			</div>
@@ -46,12 +46,12 @@
 			?>
 			<!-- 中間主要顯示區塊 ，中間拆分切板至front資料夾下，以get取值include該區塊檔案-->
 			<?php
-		
+
 			$do = $_GET['do'] ?? 'main';
 			$file = "./front/{$do}.php";
-			if(file_exists($file)){
+			if (file_exists($file)) {
 				include $file;
-			}else{
+			} else {
 				include "./front/main.php";
 			}
 			// 原始
@@ -68,22 +68,35 @@
 
 			?>
 			<!-- 結束中間主要顯示區塊 -->
-	
+
 			<div class="di di ad" style="height:540px; width:23%; padding:0px; margin-left:22px; float:left; ">
 				<!--右邊-->
 				<button style="width:100%; margin-left:auto; margin-right:auto; margin-top:2px; height:50px;" onclick="lo('?do=login')">管理登入</button>
 				<div style="width:89%; height:480px;" class="dbor">
 					<span class="t botli">校園映象區</span>
+					<div class="cent" onclick="pp(1)"><img src="./icon/up.jpg" alt=""></div>
+					<?php
+					$imgs = $Image->all(['sh' => 1]);
+					foreach ($imgs as $idx => $img) {
+					?>
+						<div id="ssaa<?= $idx; ?>" class="im cent">
+							<img src="./img/<?= $img['img']; ?>" style="width:150px;height:103px">
+						</div>
+
+					<?php
+					}
+					?>
+					<div class="cent" onclick="pp(2)"><img src="./icon/dn.jpg" alt=""></div>
 					<script>
-						var nowpage = 0,
-							num = 0;
+						var nowpage = 1,
+							num = <?= $Image->count(['sh' => 1]); ?>;
 
 						function pp(x) {
 							var s, t;
 							if (x == 1 && nowpage - 1 >= 0) {
 								nowpage--;
 							}
-							if (x == 2 && (nowpage + 1) * 3 <= num * 1 + 3) {
+							if (x == 2 && (nowpage + 1) <= num * 1 - 3) {
 								nowpage++;
 							}
 							$(".im").hide()
@@ -92,7 +105,7 @@
 								$("#ssaa" + t).show()
 							}
 						}
-						pp(1)
+						pp(2)
 					</script>
 				</div>
 			</div>
@@ -100,7 +113,7 @@
 		<div style="clear:both;"></div>
 		<!-- 頁尾顯示區塊 -->
 		<div style="width:1024px; left:0px; position:relative; background:#FC3; margin-top:4px; height:123px; display:block;">
-			<span class="t" style="line-height:123px;"><?=$Bottom->find(1)['bottom'];?></span>
+			<span class="t" style="line-height:123px;"><?= $Bottom->find(1)['bottom']; ?></span>
 		</div>
 	</div>
 
