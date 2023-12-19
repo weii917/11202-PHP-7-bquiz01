@@ -42,6 +42,7 @@
 			?>
 
 		</span>
+		<!--class='all'框框的訊息先隱藏，當hover會觸發function動作顯示出來  -->
 		<ul class="ssaa" style="list-style-type:decimal;">
 			<?php
 			$news = $News->all(['sh' => 1], ' limit 5');
@@ -60,6 +61,8 @@
 
 		</div>
 		<script>
+			// show出來的層級div會較li大所以壓過li的訊息，
+			// 滑鼠在li上會顯示li底下子項目的class='all'裡的資料
 			$(".ssaa li").hover(
 				function() {
 
@@ -67,6 +70,8 @@
 					$("#altt").show()
 				}
 			)
+			//移開會消失，如果滑鼠在.all那一層因為變成hover在div不是li了所以觸發mouseout事件，此區塊訊息會消失，
+			// 會造成閃爍，要從最前移動不要碰到.all談出的黃框訊息
 			$(".ssaa li").mouseout(
 				function() {
 					$("#altt").hide()

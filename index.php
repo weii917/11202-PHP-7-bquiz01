@@ -111,11 +111,14 @@
 				?>
 				<div style="width:89%; height:480px;" class="dbor">
 					<span class="t botli">校園映象區</span>
-					<div class="cent" onclick="pp(1)"><img src="./icon/up.jpg" alt=""></div>
+
+					<div class="cent" onclick="pp(1)"><img src="./icon/up.jpg" alt=""></div><!-- 上張圖片的按鈕小圖 -->
 					<?php
+					// 撈出sh=1要顯示的圖片
 					$imgs = $Image->all(['sh' => 1]);
 					foreach ($imgs as $idx => $img) {
 					?>
+						<!-- 產生一個帶有顯示的id #ssaa隱藏的clss="im"，讓function能觸發執行該區域要顯示還是隱藏-->
 						<div id="ssaa<?= $idx; ?>" class="im cent">
 							<img src="./img/<?= $img['img']; ?>" style="width:150px;height:103px;border:3px solid orange;margin:3px">
 						</div>
@@ -123,8 +126,14 @@
 					<?php
 					}
 					?>
-					<div class="cent" onclick="pp(2)"><img src="./icon/dn.jpg" alt=""></div>
+					<!-- $(".im").hide()會觸發css使display:none隱藏不顯示 -->
+					<!-- $("#ssaa" + t).show()會觸發css使display:block顯示 -->
+					<!-- 在PHP只要看起來像數字都會是數字來計算，即使設定字串也是以數字計算，除非用字串函示來固定字串 -->
+					<div class="cent" onclick="pp(2)"><img src="./icon/dn.jpg" alt=""></div><!-- 下張圖片的按鈕小圖 -->
 					<script>
+						// 如果是1>=0，nowapge-1=0，讓#ssaa0因前面id="ssaa=idx "設的數字從idx取從0開始，所以要產生的命名為了與id的命名數字相同，索引從0開始所以放索引0的圖片依序存放
+						// 下一頁小於等於總共可以點的次數，如總圖片9張首頁已顯示3張點6次顯示完九張圖片
+						// 當前頁通常從1開始
 						var nowpage = 1,
 							num = <?= $Image->count(['sh' => 1]); ?>;
 
@@ -136,7 +145,8 @@
 							if (x == 2 && (nowpage + 1) <= num * 1 - 3) {
 								nowpage++;
 							}
-							$(".im").hide()
+							$(".im").hide() //先全部隱藏圖片，再算哪幾個編號圖片要顯示在畫面
+							// 產生三個連續數字來顯示圖片的"#ssaa" + t 字串加數字=>字串#ssaa1、#ssaa2、#ssaa3
 							for (s = 0; s <= 2; s++) {
 								t = s * 1 + nowpage * 1;
 								$("#ssaa" + t).show()
