@@ -34,6 +34,7 @@
 				<div id="menuput" class="dbor">
 					<!--主選單放此-->
 					<span class="t botli">主選單區</span>
+					<!-- 撈出menu_id為零=>主選單並且sh=>顯示1 -->
 					<?php
 					$mainmu = $Menu->all(['sh' => 1, 'menu_id' => 0]);
 					foreach ($mainmu as $main) {
@@ -54,7 +55,7 @@
 								}
 								echo "</div>";
 							}
-							?>
+							?> 
 
 						</div>
 

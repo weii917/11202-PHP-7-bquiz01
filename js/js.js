@@ -1,4 +1,6 @@
 // JavaScript Document
+// mouseover滑鼠滑進mainmu區域的動作會在.mainmu子元素顯示.mw裡的東西
+// mouseout移開.mainmu區域會觸發隱藏子元素.mw
 $(document).ready(function(e) {
     $(".mainmu").mouseover(
 		function()
@@ -13,7 +15,7 @@ $(document).ready(function(e) {
 		}
 	)
 });
-function lo(x)
+function lo(x) 
 {
 	location.replace(x)
 }
