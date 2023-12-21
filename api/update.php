@@ -1,3 +1,4 @@
+<!-- 13. 做更新圖片功能到modal/upload.php再到api/update.php更新-->
 <?php
 include_once "db.php";
 // 得到的table先存進變數，物件變數名稱

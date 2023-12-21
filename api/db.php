@@ -181,7 +181,7 @@ if (isset($_GET['do'])) {
 
 // }
 if(!isset($_SESSION['visited'])){
-    $Total->q("update `total` set `total` = `total`+1 wehre `id`=1");
+    $Total->q("update `total` set `total` = `total`+1 where `id`=1");
     $_SESSION['visited']=1;
 }
 

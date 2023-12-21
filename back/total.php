@@ -1,3 +1,6 @@
+<!-- 3.複製title.php修改成 進站總人數管理畫面-->
+<!-- 4.改路徑至./api/edit_info.php做修改動作 -->
+<!-- 6.在表單裡增加隱藏欄位table值是GET $do檔案名稱知道目前在total頁面傳進 edit_info.php知道該執行total資料表-->
 <div style="width:99%; height:87%; margin:auto; overflow:auto; border:#666 1px solid;">
     <p class="t cent botli">進站總人數管理</p>
     <form method="post" action="./api/edit_info.php">

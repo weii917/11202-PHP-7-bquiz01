@@ -26,7 +26,7 @@ if(!isset($_SESSION['login'])){
 	</div>
 	<iframe style="display:none;" name="back" id="back"></iframe>
 	<div id="main">
-		<!-- 顯示title圖片 -->
+		<!-- 14.顯示title圖片 -->
 		<?php
 		$title = $Title->find(['sh' => 1]);
 		?>
@@ -38,6 +38,7 @@ if(!isset($_SESSION['login'])){
 			<div id="lf" style="float:left;">
 				<div id="menuput" class="dbor">
 					<!--主選單放此-->
+					<!-- 2.修改主選單連結位置 -->
 					<span class="t botli">後台管理選單</span>
 					<a style="color:#000; font-size:13px; text-decoration:none;" href="?do=title">
 						<div class="mainmu">

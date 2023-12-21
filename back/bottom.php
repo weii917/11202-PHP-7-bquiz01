@@ -1,3 +1,5 @@
+<!-- 5.複製total.php 為bottom.php並修改相關的變數及資料表,完成頁尾版權功能 -->
+<!-- 6.在表單裡增加隱藏欄位table值是GET $do檔案名稱知道目前在bottom頁面傳進 edit_info.php知道該執行bottom資料表-->
 <div style="width:99%; height:87%; margin:auto; overflow:auto; border:#666 1px solid;">
     <p class="t cent botli">頁尾版權資料管理</p>
     <form method="post" action="/api/edit_info.php">

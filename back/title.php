@@ -1,3 +1,6 @@
+<!-- 8.做title 使用modal新增圖片 -->
+<!-- 11.完成後台標題管理資料列表功能及更新圖片按鈕設定 -->
+<!-- 13. 做更新圖片功能到modal/upload.php再到api/update.php更新-->
 <div style="width:99%; height:87%; margin:auto; overflow:auto; border:#666 1px solid;">
     <p class="t cent botli">網站標題管理</p>
     <form method="post" action="./api/edit.php">
@@ -10,6 +13,7 @@
                     <td width="7%">刪除</td>
                     <td></td>
                 </tr>
+ 
                 <!-- 取資料料表資料放入後台顯示表格中 -->
                 <?php
                 $rows=$DB->all();

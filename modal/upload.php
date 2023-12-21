@@ -1,3 +1,4 @@
+<!-- 13. 做更新圖片功能到modal/upload.php再到api/update.php更新-->
 <?php
 switch ($_GET['table']) {
     case "title";
@@ -38,7 +39,7 @@ switch ($_GET['table']) {
 
     </table>
     <div>
-        <!-- 只是停留更新的介面，要帶table及id值到執行頁面update -->
+        <!-- 只是停留更新的介面，要帶table及id值到執行頁面update.php -->
         <input type="hidden" name="table" value="<?= $_GET['table']; ?>">
         <input type="hidden" name="id" value="<?= $_GET['id']; ?>">
         <input type="submit" value="更新">

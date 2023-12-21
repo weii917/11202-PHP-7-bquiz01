@@ -21,7 +21,7 @@
 	</div>
 	<iframe style="display:none;" name="back" id="back"></iframe>
 	<div id="main">
-		<!-- 顯示title圖片 -->
+		<!-- 14.顯示title圖片 -->
 		<?php
 		$title = $Title->find(['sh' => 1]);
 		?>
@@ -72,7 +72,7 @@
 			<!-- main -->
 			<?php // include "./front/main.php";
 			?>
-			<!-- 中間主要顯示區塊 ，中間拆分切板至front資料夾下，以get取值include該區塊檔案-->
+			<!--1. 中間主要顯示區塊 ，中間拆分切板至front資料夾下，以get取值include該區塊檔案front裡-->
 			<?php
 
 			$do = $_GET['do'] ?? 'main';

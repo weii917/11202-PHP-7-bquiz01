@@ -1,3 +1,4 @@
+<!-- 12. 完成標題圖片編輯功能-->
 <?php
 include_once "db.php";
 $table = $_POST['table'];

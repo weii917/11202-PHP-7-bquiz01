@@ -1,3 +1,4 @@
+<!-- 15. 套用Title的功能到Ad功能去-->
 <h3>新增動態文字廣告</h3>
 <hr>
 <form action="./api/add.php" method="post" enctype="multipart/form-data">
