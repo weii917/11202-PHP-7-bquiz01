@@ -9,6 +9,7 @@
 		</div>
 	</div>
 	<script>
+		// 宣告一個陣列，把資料庫撈出來的img檔名，存進lin裡面，顯示圖片時依據索引顯示
 		var lin = new Array();
 		<?php
 		$lins = $Mvim->all(['sh' => 1]);
