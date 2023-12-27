@@ -6,12 +6,13 @@ include_once "db.php";
 //也取得db物件名稱要改成首字大寫
 $table=$_POST['table'];
 $DB=${ucfirst($table)};
-// 取得id為1的資料
+// 從資料表撈出id為1的資料
 $data=$DB->find(1);
-// 將資料表對應的欄位修改成post過來的值
+// 將資料表對應的欄位修改成post過來的值，更新回資料表
 $data[$table]=$_POST[$table];
 $DB->save($data);
 // header("location:$url")的小function
+// 導回total的頁面
 to("../back.php?do=$table");
 
 
