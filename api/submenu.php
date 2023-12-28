@@ -13,7 +13,7 @@ if (isset($_POST['id'])) {
     }
 }
 
-
+// POST過來的帶有menu_id，才能更新回資料庫知道是屬於哪個主選單的
 if (isset($_POST['add_text'])) {
     foreach ($_POST['add_text'] as $idx => $text) {
         if ($text != "") {

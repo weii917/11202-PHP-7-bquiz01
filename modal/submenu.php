@@ -23,6 +23,7 @@
         ?>
     </table>
     <div>
+        <!-- 藏一個 從menu帶過來的網址附帶menu_id 因為要知道這個次選單是屬於哪一個id的主選單下的-->
         <input type="hidden" name="table" value="<?= $_GET['table']; ?>">
         <input type="hidden" name="menu_id" value="<?= $_GET['id']; ?>">
         <input type="submit" value="修改確定">
