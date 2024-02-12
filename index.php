@@ -55,7 +55,7 @@
 								}
 								echo "</div>";
 							}
-							?> 
+							?>
 
 						</div>
 
@@ -147,13 +147,27 @@
 								nowpage++;
 							}
 							$(".im").hide() //先全部隱藏圖片，再算哪幾個編號圖片要顯示在畫面
-							// 產生三個連續數字來顯示圖片的"#ssaa" + t 字串加數字=>字串#ssaa1、#ssaa2、#ssaa3
+							// 產生三個連續數字來顯示圖片的"#ssaa" + t 字串加數字=>字串#ssaa0、#ssaa1、#ssaa2
 							for (s = 0; s <= 2; s++) {
 								t = s * 1 + nowpage * 1;
 								$("#ssaa" + t).show()
 							}
 						}
+						// 讓畫面載入先執行一次pp(1)，因預設定nowpage=1，當執行pp(1),nowpage=0，讓畫面顯示#ssaa0、#ssaa1、#ssaa2三張圖
 						pp(1)
+						// 因nowpage預設為1，達成nowpage--條件=>nowpage=0，所以初始畫面會是
+						// t s nowpage
+						// 0  0  0
+						// 1  1  0
+						// 2  2  0 初始
+						// 當pp(1)會nowpage 1-1=>0 012
+						// 當pp(2)會nowpage 0+1=>1 123
+						// 當pp(2)會nowpage 1+1=>2 234
+						// 當pp(2)會nowpage 2+1=>3 345
+						// 當pp(2)會nowpage 3+1=>4 456
+						// 當pp(2)會nowpage 4+1=>5 567
+						// 當pp(2)會nowpage 5+1=>6 678
+						// nowpage最多只能加到總數減掉顯示的張數
 					</script>
 				</div>
 			</div>
