@@ -13,10 +13,19 @@
 // }
 
 // 2.將表單檢查工作移到class db 去進行
-if($Admin->count(['acc'=>$_POST['acc'],'pw'=>$_POST['pw']])>0){
-    $_SESSION['login']=$_POST['acc'];
-   to("../back.php");
-}else{
+// if($Admin->count(['acc'=>$_POST['acc'],'pw'=>$_POST['pw']])>0){
+//     $_SESSION['login']=$_POST['acc'];
+//    to("../back.php");
+// }else{
+//     to("../index.php?do=login&error=帳號或密碼錯誤");
+// }
+
+
+
+// 3.登入及帳號密碼欄位增加md5編碼
+if ($Admin->count(['acc' => $_POST['acc'], 'pw' => md5($_POST['pw'])]) > 0) {
+    $_SESSION['login'] = $_POST['acc'];
+    to("../back.php");
+} else {
     to("../index.php?do=login&error=帳號或密碼錯誤");
 }
-
